@@ -1,0 +1,132 @@
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "SF Pro", sans-serif;
+}
+
+.header {
+  background: #111319;
+  padding: 1.8rem;
+}
+.header__left, .header__right {
+  display: flex;
+  align-items: center;
+}
+.header__logo {
+  margin-right: -0.8rem;
+}
+.header__logo--link {
+  font-size: 3rem;
+  font-weight: bolder;
+  color: transparent;
+  background-image: linear-gradient(to right, #00dc5a, #49d26d);
+  -webkit-background-clip: text;
+}
+.header__navs {
+  display: flex;
+}
+.header__item {
+  font-size: 1.6rem;
+  margin-left: 4.1rem;
+}
+.header__item:first-child .header__item--link {
+  font-weight: 700;
+  opacity: 1;
+}
+.header__item--link {
+  font-weight: 500;
+  color: #fff;
+  opacity: 0.6;
+}
+.header__item--link:hover {
+  color: #00dc5a;
+  opacity: 2.5;
+}
+.header__form {
+  display: flex;
+  position: relative;
+}
+.header__form input {
+  width: 24rem;
+  height: 3.6rem;
+  padding: 0 5.3rem 0 1.2rem;
+  border-radius: 0.4rem;
+  display: block;
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+  font-size: 1.4rem;
+}
+.header__lists {
+  position: absolute;
+  top: 5.5rem;
+  left: 0;
+  right: 0;
+  padding: 0.8rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0.4rem;
+  background: #1a1c22;
+}
+.header__search--btn {
+  position: absolute;
+  top: 50%;
+  right: 1.4rem;
+  transform: translateY(-50%);
+}
+.header__search--btn i {
+  font-size: 2rem;
+  color: #fff;
+}
+.header .line {
+  position: absolute;
+  top: 50%;
+  right: 4.8rem;
+  transform: translateY(-50%);
+  width: 0.1rem;
+  height: 2rem;
+  background: rgba(255, 255, 255, 0.5);
+}
+.header__hotSearch {
+  padding: 1.4rem 1.6rem;
+  cursor: pointer;
+}
+.header__hotSearch:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.header__hotSearch:hover .header__item--link {
+  color: #00dc5a;
+  opacity: 2.5;
+}
+.header__hotSearch--title {
+  padding: 0 1.6rem 0.4rem;
+  font-size: 1.2rem;
+  color: rgba(153, 153, 153, 0.6);
+}
+.header__item--link {
+  font-size: 1.4rem;
+}
+.header__search--overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+.header__icons {
+  display: flex;
+}
+.header__icons > * i {
+  color: #fff;
+}
