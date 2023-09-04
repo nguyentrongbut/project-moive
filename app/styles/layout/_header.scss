@@ -109,22 +109,24 @@
     &__hotSearch {
         padding: 1.4rem 1.6rem;
         cursor: pointer;
+        counter-reset: custom-counter;
         &:hover {
             background: rgba(255, 255, 255, 0.1);
-            .header__item--link {
+            .header__hotSearch--link {
                 color: $primary-color;
                 opacity: 2.5;
             }
         }
         &--title {
-            padding: 0 1.6rem 0.4rem;
+            padding: 0.8rem 1.6rem 0.6rem;
             font-size: 1.2rem;
-            color: #9999;
+            color: rgb(153, 153, 153);
         }
-    }
-    &__item--link {
-        @include lineClamp();
-        font-size: 1.4rem;
+        &--link {
+            @include lineClamp();
+            font-size: 1.4rem;
+            color: rgb(204, 204, 204);
+        }
     }
     &__icons {
         display: flex;
@@ -177,4 +179,11 @@
 }
 .js-show {
     display: block;
+}
+.primary {
+    color: $primary-color;
+    opacity: 2.5;
+}
+.hidden-padding {
+    padding: 0;
 }
