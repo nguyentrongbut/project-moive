@@ -7,18 +7,17 @@ async function fetchDataAndRender() {
 
     // Lọc ra các đối tượng có albumId là 1
     // Lấy trường title của đối tượng và đưa vào biến titles
-    const titles = data.results.map(item => item.title).slice(0, 9);
-    const titleList = document.querySelector(".header__hotSearch");
+    const titles = data.results.map(item => item.title);
     titles.forEach(title => {
       // const li = document.createElement("a");
       // li.textContent = title;
       // li.href= "#!";
       // titleList.appendChild(li);
-      const hotSearchlist = document.querySelector(".header__lists");
+      const hotSearchlist = document.querySelector(".header__lists--data");
       const li = document.createElement("li");
-      li.className = "header__hotSearch";
+      li.className = "header__searchs";
       const a = document.createElement("a");
-      a.className = "header__hotSearch--link";
+      a.className = "header__searchs--link";
       a.textContent = title;
       a.href = "#!";
       li.appendChild(a);
@@ -29,12 +28,45 @@ async function fetchDataAndRender() {
   }
 }
 fetchDataAndRender();
+
+// call api hotSearch
+
+async function fetchDataAndRenderH() {
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    // Lấy trường title của đối tượng và đưa vào biến titles
+    const titles = data.results.map(item => item.title).slice(0, 9);
+    titles.forEach(title => {
+      // const li = document.createElement("a");
+      // li.textContent = title;
+      // li.href= "#!";
+      // titleList.appendChild(li);
+      const hotSearch = document.querySelector(".header__lists");
+      const li = document.createElement("li");
+      li.className = "header__hotSearch";
+      const a = document.createElement("a");
+      a.className = "header__hotSearch--link";
+      a.textContent = title;
+      a.href = "#!";
+      li.appendChild(a);
+      hotSearch.appendChild(li);
+    });
+  } catch (error) {
+    console.error("Lỗi khi gọi API:", error);
+  }
+}
+fetchDataAndRenderH();
+
 // hide and display list search
 const header = document.querySelector(".header");
 const search = document.querySelector(".header__search");
 const inputHeader = document.querySelector(".header__input");
 const hotsSearch = document.querySelector(".header__lists");
+const searchList = document.querySelector(".header__lists--data");
 const overlayHeader = document.querySelector(".header__search--overlay");
+const btnDelete = document.querySelector(".header__search--delete");
 inputHeader.addEventListener("focus", e => {
   hotsSearch.classList.add("js-show");
   overlayHeader.classList.add("js-show");
@@ -42,20 +74,57 @@ inputHeader.addEventListener("focus", e => {
 document.addEventListener("click", e => {
   if (!search.contains(e.target) && !header.contains(e.target)) {
     hotsSearch.classList.remove("js-show");
+    searchList.classList.remove("js-show");
     overlayHeader.classList.remove("js-show");
   }
 });
 
-// highlight search
+// highlight search and no space
 
 window.addEventListener("load", function () {
   const input = document.querySelector(".header__input");
-  const items = document.querySelectorAll(".header__hotSearch--link");
+  const items = document.querySelectorAll(".header__searchs--link");
+  const searchLi = document.querySelectorAll(".header__searchs");
+  const hotsSearch = document.querySelector(".header__lists");
+  const searchList = document.querySelector(".header__lists--data");
   input.addEventListener("input", function (e) {
-    handleHighlight(e);
     handleSearch(e);
+    handleHighlight(e);
+    searchListsMoive(e);
+    hiddenLiNone(e);
+    deleteString(e);
   });
-  // input nó sẽ lấy giá trị hiện tại mỗi khi chúng ta gõ 
+
+  // default space
+  input.addEventListener("keydown", e => {
+    const filter = e.target.value;
+    if (filter.length === 0 && e.key === " ") {
+      e.preventDefault();
+    }
+  });
+  function searchListsMoive(e) {
+    filter = e.target.value;
+    if (filter === "") {
+      hotsSearch.classList.add("js-show");
+      searchList.classList.remove("js-show");
+      btnDelete.classList.remove("js-show");
+    } else {
+      hotsSearch.classList.remove("js-show");
+      searchList.classList.add("js-show");
+      btnDelete.classList.add("js-show");
+    }
+    input.addEventListener("focus", e => {
+      if (filter !== "") {
+        hotsSearch.classList.remove("js-show");
+        searchList.classList.add("js-show");
+        hiddenLiNone(e);
+      }
+      if (!btnDelete.classList.contains("js-show")) {
+        hotsSearch.classList.add("js-show");
+        searchList.classList.remove("js-show");
+      }
+    });
+  }
   function capitalizeFirstLetter(string) {
     const words = string.split(" ");
     const capitalizedWords = words.map(word => {
@@ -68,7 +137,9 @@ window.addEventListener("load", function () {
     const result = capitalizedWords.join(" ");
     return result;
   }
-  function handleHighlight(e) {
+
+  // search no space and don't highlight search
+  function handleSearch(e) {
     let filter = e.target.value;
     filter = filter.toLowerCase().replace(/\s+/g, "");
     [...items].forEach(item => {
@@ -90,7 +161,9 @@ window.addEventListener("load", function () {
       }
     });
   }
-  function handleSearch(e) {
+
+  // highlight
+  function handleHighlight(e) {
     let filter = e.target.value;
     [...items].forEach(item => {
       const text = item.textContent;
@@ -98,6 +171,22 @@ window.addEventListener("load", function () {
         const highlightedText = text.replace(filter, `<span class="primary">${filter}</span>`);
         item.innerHTML = highlightedText;
       }
+    });
+  }
+  function hiddenLiNone(e) {
+    const allHidden = Array.from(searchLi).every(item => {
+      return item.style.display === "none";
+    });
+    if (allHidden) {
+      searchList.classList.remove("js-show");
+      hotsSearch.classList.add("js-show");
+    }
+  }
+  function deleteString(e) {
+    btnDelete.addEventListener("click", e => {
+      input.value = "";
+      btnDelete.classList.remove("js-show");
+      hotsSearch.classList.add("js-show");
     });
   }
 });

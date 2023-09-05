@@ -8,6 +8,16 @@
     }
     &__search {
         margin-left: auto;
+        &--delete {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.6rem;
+            color: #cccccc;
+            cursor: pointer;
+            right: 5.6rem;
+            display: none;
+        }
         &--btn {
             position: absolute;
             top: 50%;
@@ -84,7 +94,8 @@
             font-size: 1.4rem;
         }
     }
-    &__lists {
+    &__lists,
+    &__lists--data {
         position: absolute;
         top: 5.5rem;
         left: 0;
@@ -95,6 +106,13 @@
         border-radius: 0.4rem;
         background: #1a1c22;
         display: none;
+
+    }
+    // &__list--data {
+    //     visibility: hidden;
+    // }
+    &__lists {
+        counter-reset: custom-counter; /* Đặt giá trị ban đầu cho biến đếm */
     }
     .line {
         position: absolute;
@@ -107,12 +125,32 @@
         pointer-events: none;
     }
     &__hotSearch {
+        gap: 0.8rem;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        &:nth-child(-n+4)::before {
+            color: rgb(28, 199, 73);
+        }
+        &::before {
+            font-weight: 700;
+            counter-increment: custom-counter; /* Tăng giá trị biến đếm */
+            content: counter(custom-counter); /* Chỉ hiển thị số thứ tự */
+        }
+        &:hover::before {
+            color: rgb(28, 199, 73);
+        }
+    }
+    &__hotSearch,
+    &__searchs {
         padding: 1.4rem 1.6rem;
         cursor: pointer;
-        counter-reset: custom-counter;
+
         &:hover {
             background: rgba(255, 255, 255, 0.1);
-            .header__hotSearch--link {
+            .header__hotSearch--link,
+            .header__searchs--link {
                 color: $primary-color;
                 opacity: 2.5;
             }
