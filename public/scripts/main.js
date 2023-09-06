@@ -92,7 +92,7 @@ window.addEventListener("load", function () {
     handleHighlight(e);
     searchListsMoive(e);
     hiddenLiNone(e);
-    deleteString(e);
+    deleteString();
   });
 
   // default space
@@ -182,11 +182,26 @@ window.addEventListener("load", function () {
       hotsSearch.classList.add("js-show");
     }
   }
-  function deleteString(e) {
+
+  // click btn remove input when enter
+  function deleteString() {
     btnDelete.addEventListener("click", e => {
       input.value = "";
       btnDelete.classList.remove("js-show");
       hotsSearch.classList.add("js-show");
+      searchList.classList.remove("js-show");
     });
+  }
+});
+
+// header color change
+window.addEventListener("scroll", function (e) {
+  const scrollY = window.pageYOffset;
+  if (scrollY >= 200) {
+    // header && header.classList.add("is-fixed");
+    header.style.backgroundColor = "rgb(10, 12, 15)";
+  } else {
+    // header && header.classList.remove("is-fixed");
+    header.style.removeProperty("background-color");
   }
 });

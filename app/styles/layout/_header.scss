@@ -1,6 +1,12 @@
 .header {
-    background: $third-color;
+    position: fixed;
     padding: 1.8rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    height: 7.2rem;
+    transition: background-color 0.5s linear 0s;
     &__left,
     &__right {
         display: flex;
@@ -102,7 +108,7 @@
         // right: 1rem;
         right: -0.2rem;
         padding: 0.8rem 0;
-        border: 1px solid $light-white-color;
+        border: 1px solid rgba(255, 255, 255, 0.12);;
         border-radius: 0.4rem;
         background: #1a1c22;
         display: none;

@@ -8,8 +8,14 @@ body {
 }
 
 .header {
-  background: #111319;
+  position: fixed;
   padding: 1.8rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  height: 7.2rem;
+  transition: background-color 0.5s linear 0s;
 }
 .header__left, .header__right {
   display: flex;
@@ -105,7 +111,7 @@ body {
   left: 0;
   right: -0.2rem;
   padding: 0.8rem 0;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0.4rem;
   background: #1a1c22;
   display: none;
@@ -227,4 +233,10 @@ body {
 
 .hidden-padding {
   padding: 0;
+}
+
+img {
+  height: 200vh;
+  width: 100vw;
+  object-fit: cover;
 }
