@@ -7,21 +7,28 @@ body {
   font-family: "SF Pro", sans-serif;
 }
 
+.container {
+  max-width: calc(100% - 56px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .header {
   position: fixed;
   padding: 1.8rem;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 1;
   height: 7.2rem;
   transition: background-color 0.5s linear 0s;
 }
-.header__left, .header__right {
+.header__container {
   display: flex;
   align-items: center;
 }
-.header__search {
+.header__right {
+  display: flex;
   margin-left: auto;
 }
 .header__search--delete {
@@ -48,7 +55,7 @@ body {
   font-size: 1.6rem;
   color: #fff;
 }
-.header__search--overlay {
+.header__overlay {
   position: fixed;
   left: 0;
   top: 0;
@@ -94,7 +101,7 @@ body {
   display: flex;
   position: relative;
 }
-.header__form input {
+.header__form > input {
   width: 24rem;
   height: 3.6rem;
   padding: 0 5.3rem 0 1.2rem;
@@ -174,6 +181,7 @@ body {
   color: rgb(204, 204, 204);
 }
 .header__icons {
+  position: relative;
   display: flex;
 }
 .header__icons > * {
@@ -189,9 +197,6 @@ body {
 .header__icons > * i {
   font-size: 2rem;
 }
-.header__icons > *:not(:last-child):hover {
-  color: #00dc5a;
-}
 .header__icons > *:first-child .header__text {
   font-style: italic;
 }
@@ -199,14 +204,73 @@ body {
   font-size: 1.2rem;
   transform: translateY(5px);
 }
+.header__login {
+  top: 5.2rem;
+  position: absolute;
+  width: 280px;
+  background: rgb(26, 28, 34);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.4rem;
+  padding: 1.6rem;
+  text-align: center;
+  display: none;
+}
+.header__login::after {
+  position: absolute;
+  content: "";
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: rgb(26, 28, 34);
+  top: -1px;
+  left: 50%;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px 0px 0px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.header__login::before {
+  position: absolute;
+  top: -1.2rem;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1.2rem;
+  background: transparent;
+}
+.header__login--text {
+  font-size: 1.3rem;
+  color: rgb(169, 169, 172);
+}
+.header__login--btn {
+  display: inline-block;
+  min-width: 10.8rem;
+  margin-top: 1.6rem;
+  padding: 0 12px;
+  background: rgb(28, 199, 73);
+  border-radius: 4px;
+  line-height: 30px;
+  font-size: 1.3rem;
+}
+.header__login--btn:hover {
+  background: rgb(73, 210, 109);
+}
 .header__history {
   margin-left: 2rem;
+}
+.header__history:hover {
+  color: #00dc5a;
+}
+.header__user:hover .header__login {
+  display: block;
+}
+.header__user:hover > *:not(:last-child) {
+  color: #00dc5a;
 }
 .header__vip {
   position: relative;
   width: 8.2rem;
   height: 3.6rem;
-  background-color: rgb(161, 255, 170);
+  background-color: rgb(242, 191, 131);
   border-radius: 0.4rem;
   color: #1a1c22;
   font-weight: 900;
@@ -219,11 +283,110 @@ body {
   margin-left: 2rem;
 }
 .header__vip:hover {
-  opacity: 0.9;
+  background: rgb(244, 203, 155);
 }
 
-.js-show {
-  display: block;
+.modalLogin {
+  font-family: "Microsoft Jhenghei", "Heiti TC", "PingFang TC", sans-serif;
+  position: relative;
+  width: 400px;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+  background: #fff;
+  z-index: 3;
+}
+.modalLogin__title {
+  font-size: 1.8rem;
+  color: #222;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+  text-align: center;
+}
+.modalLogin__btn, .modalLogin__forgotPassword {
+  margin-top: 2.4rem;
+  padding: 0 1.6rem;
+  color: #fff;
+  background: #00cc36;
+  width: 100%;
+  height: 44px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+}
+.modalLogin__forgotPassword {
+  color: #00cc36;
+  background: #fff;
+}
+.modalLogin__desc {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalLogin__SignUp {
+  padding: 0 8px;
+  color: #00cc36;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.modalLogin__wrapper {
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+.modalLogin__wrapper:first-child {
+  margin-bottom: 16px;
+}
+.modalLogin input {
+  font-family: inherit;
+  padding: 0 12px 12px;
+  border: 0;
+  border-top: 27px solid transparent;
+  width: 100%;
+  height: 60px;
+  font-size: 1.6rem;
+  color: #222;
+  font-weight: 600;
+  outline: none;
+}
+.modalLogin input:focus + label, .modalLogin input:not(:placeholder-shown) + label {
+  translate: 0 -24px;
+  font-size: 1.3rem;
+}
+.modalLogin label {
+  position: absolute;
+  top: 50%;
+  left: 13px;
+  translate: 0 -50%;
+  font-size: 1.6rem;
+  color: rgba(34, 34, 34, 0.5882352941);
+  font-weight: 600;
+  pointer-events: none;
+  transition: translate 0.3s;
+}
+.modalLogin__input--email, .modalLogin__input--password {
+  position: relative;
+}
+.modalLogin__email--error, .modalLogin__email--error2, .modalLogin__password--error {
+  display: none;
+  color: #fe685f;
+  font-size: 1.2rem;
+  padding: 0 0 16px;
+}
+
+.modal-close {
+  font-size: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 16px;
+  cursor: pointer;
 }
 
 .primary {
@@ -233,6 +396,33 @@ body {
 
 .hidden-padding {
   padding: 0;
+}
+
+.focus {
+  border-color: #00cc36;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.js-show {
+  display: block;
+}
+
+.hidden-scroll {
+  overflow: hidden;
 }
 
 img {

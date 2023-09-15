@@ -1,7 +1,11 @@
-
 html {
     font-size: 62.5%;
 }
 body {
     font-family: "SF Pro", sans-serif;
+}
+.container {
+    max-width: calc(100% - 56px);
+    margin-left: auto;
+    margin-right: auto;
 }

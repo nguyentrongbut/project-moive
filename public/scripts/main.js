@@ -1,3 +1,32 @@
+// // Khai báo hàm callback để xử lý dữ liệu
+// const apiUrl =
+//     "http://api.kyoku.id.vn/movies";
+// function handleData(data) {
+//     const titles = data.results.map((item) => item.title);
+
+//     titles.forEach((title) => {
+//         const hotSearchlist = document.querySelector(".header__lists--data");
+//         const li = document.createElement("li");
+//         li.className = "header__searchs";
+//         const a = document.createElement("a");
+//         a.className = "header__searchs--link";
+//         a.textContent = title;
+//         a.href = "#!";
+//         li.appendChild(a);
+//         hotSearchlist.appendChild(li);
+//     });
+// }
+
+// // Tạo một thẻ script để gọi API bằng JSONP
+// function fetchDataAndRender() {
+//     const script = document.createElement('script');
+//     script.src = `${apiUrl}?callback=handleData`;
+//     document.body.appendChild(script);
+// }
+
+// // Gọi hàm fetchDataAndRender để tải dữ liệu
+// fetchDataAndRender();
+
 // call api hotSearch
 const apiUrl = "https://api.themoviedb.org/3/movie/top_rated?api_key=a98fd8b296eaf9924a5460d5ae4c8040";
 async function fetchDataAndRender() {
@@ -5,7 +34,6 @@ async function fetchDataAndRender() {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
-    // Lọc ra các đối tượng có albumId là 1
     // Lấy trường title của đối tượng và đưa vào biến titles
     const titles = data.results.map(item => item.title);
     titles.forEach(title => {
@@ -59,14 +87,65 @@ async function fetchDataAndRenderH() {
 }
 fetchDataAndRenderH();
 
+// debounceFn scroll
+function debounceFn(func, wait, immediate) {
+  let timeout;
+  return function () {
+    let context = this,
+      args = arguments;
+    let later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    let callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
 // hide and display list search
 const header = document.querySelector(".header");
 const search = document.querySelector(".header__search");
 const inputHeader = document.querySelector(".header__input");
 const hotsSearch = document.querySelector(".header__lists");
 const searchList = document.querySelector(".header__lists--data");
-const overlayHeader = document.querySelector(".header__search--overlay");
+const overlayHeader = document.querySelector(".header__overlay");
 const btnDelete = document.querySelector(".header__search--delete");
+const login = document.querySelector(".header__login");
+const loginTemplate = `<div class="modal">
+<div class="modalLogin">
+    <p class="modalLogin__title">Log in</p>
+    <form class="modalLogin__form" action="">
+        <div class="modalLogin__wrapper">
+            <div class="modalLogin__input--email">
+                <input type="text" placeholder=" "/>
+                <label for="text">Email</label>
+            </div>
+        </div>
+        <span class="modalLogin__email--error"
+            >Enter email address</span
+        ><span class="modalLogin__email--error2"
+            >Enter format error</span
+        >
+        <div class="modalLogin__wrapper">
+            <div class="modalLogin__input--password">
+                <input type="password" placeholder=" " />
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <span class="modalLogin__password--error"
+            >Enter password</span
+        >
+        <button class="modalLogin__btn">Login</button>
+    </form>
+    <div class="modalLogin__forgotPassword">Forgot password</div>
+    <div class="modalLogin__desc">
+        <p>Don't have an account yet?</p>
+        <p class="modalLogin__SignUp">Sign Up</p>
+    </div>
+    <i class="fa fa-times modal-close"></i>
+</div>
+</div>`;
 inputHeader.addEventListener("focus", e => {
   hotsSearch.classList.add("js-show");
   overlayHeader.classList.add("js-show");
@@ -78,15 +157,14 @@ document.addEventListener("click", e => {
     overlayHeader.classList.remove("js-show");
   }
 });
-
-// highlight search and no space
-
 window.addEventListener("load", function () {
   const input = document.querySelector(".header__input");
   const items = document.querySelectorAll(".header__searchs--link");
   const searchLi = document.querySelectorAll(".header__searchs");
   const hotsSearch = document.querySelector(".header__lists");
   const searchList = document.querySelector(".header__lists--data");
+
+  // HIGHLIGHT SEARCH AND NO SPACE
   input.addEventListener("input", function (e) {
     handleSearch(e);
     handleHighlight(e);
@@ -188,20 +266,51 @@ window.addEventListener("load", function () {
     btnDelete.addEventListener("click", e => {
       input.value = "";
       btnDelete.classList.remove("js-show");
-      hotsSearch.classList.add("js-show");
       searchList.classList.remove("js-show");
+      if (overlayHeader.classList.contains("js-show")) {
+        hotsSearch.classList.add("js-show");
+      }
     });
   }
-});
 
-// header color change
-window.addEventListener("scroll", function (e) {
-  const scrollY = window.pageYOffset;
-  if (scrollY >= 200) {
-    // header && header.classList.add("is-fixed");
-    header.style.backgroundColor = "rgb(10, 12, 15)";
-  } else {
-    // header && header.classList.remove("is-fixed");
-    header.style.removeProperty("background-color");
-  }
+  // HEADER COLOR CHANGE
+  window.addEventListener("scroll", debounceFn(function (e) {
+    const scrollY = window.pageYOffset;
+    if (scrollY >= 200) {
+      // header && header.classList.add("is-fixed");
+      header.style.backgroundColor = "rgb(10, 12, 15)";
+    } else {
+      // header && header.classList.remove("is-fixed");
+      header.style.removeProperty("background-color");
+    }
+  }, 100));
+
+  // LOGIN
+  login.addEventListener("click", function () {
+    header.insertAdjacentHTML("afterend", loginTemplate);
+    document.body.classList.add("hidden-scroll");
+    const loginBtn = document.querySelector(".modalLogin__btn");
+    const emailInput = document.querySelector(".modalLogin__input--email input");
+    const emailError = document.querySelector(".modalLogin__email--error");
+    const emailError2 = document.querySelector(".modalLogin__email--error2");
+    emailInput.addEventListener("input", function (e) {
+      const value = e.target.value;
+      const regexEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (regexEmail.test(value.trim())) {
+        emailError2.classList.remove("js-show");
+      } else {
+        emailError2.classList.add("js-show");
+      }
+      if (!value) {
+        emailError2.classList.remove("js-show");
+      }
+    });
+  });
+  document.body.addEventListener("click", function (e) {
+    if (e.target.matches(".modal-close")) {
+      const modal = e.target.parentNode.parentNode;
+      modal.parentNode.removeChild(modal);
+      document.body.classList.remove("hidden-scroll");
+    }
+  });
 });
