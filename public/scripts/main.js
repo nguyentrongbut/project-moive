@@ -326,31 +326,31 @@ window.addEventListener("load", function () {
       document.body.classList.remove("hidden-scroll");
     }
   });
+
+  // 
+  function moveToNextSlide() {
+    let lists = document.querySelectorAll('.slider__item');
+    document.querySelector('.slider').appendChild(lists[0]);
+  }
+  function moveToPreviousSlide() {
+    let lists = document.querySelectorAll('.slider__item');
+    document.querySelector('.slider').prepend(lists[lists.length - 1]);
+  }
+
+  // Thiết lập thời gian tự động chuyển slide (ví dụ: sau mỗi 5 giây)
+  let interval = setInterval(moveToNextSlide, 6000);
+
+  // Khi click vào nút 'Next', chuyển slide và đặt lại thời gian tự động
+  document.querySelector('.slider__next').onclick = function () {
+    moveToNextSlide();
+    clearInterval(interval); // Đặt lại thời gian tự động
+    interval = setInterval(moveToNextSlide, 6000); // Bắt đầu lại thời gian tự động
+  };
+
+  // Tương tự cho nút 'Previous'
+  document.querySelector('.slider__prev').onclick = function () {
+    moveToPreviousSlide();
+    clearInterval(interval);
+    interval = setInterval(moveToNextSlide, 6000);
+  };
 });
-
-// 
-function moveToNextSlide() {
-  let lists = document.querySelectorAll('.slider__item');
-  document.querySelector('.slider').appendChild(lists[0]);
-}
-function moveToPreviousSlide() {
-  let lists = document.querySelectorAll('.slider__item');
-  document.querySelector('.slider').prepend(lists[lists.length - 1]);
-}
-
-// Thiết lập thời gian tự động chuyển slide (ví dụ: sau mỗi 5 giây)
-let interval = setInterval(moveToNextSlide, 6000);
-
-// Khi click vào nút 'Next', chuyển slide và đặt lại thời gian tự động
-document.querySelector('.slider__next').onclick = function () {
-  moveToNextSlide();
-  clearInterval(interval); // Đặt lại thời gian tự động
-  interval = setInterval(moveToNextSlide, 6000); // Bắt đầu lại thời gian tự động
-};
-
-// Tương tự cho nút 'Previous'
-document.querySelector('.slider__prev').onclick = function () {
-  moveToPreviousSlide();
-  clearInterval(interval);
-  interval = setInterval(moveToNextSlide, 6000);
-};
