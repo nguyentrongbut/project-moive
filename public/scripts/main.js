@@ -33,14 +33,9 @@ async function fetchDataAndRender() {
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
-
-    // Lấy trường title của đối tượng và đưa vào biến titles
     const titles = data.results.map(item => item.title);
     titles.forEach(title => {
-      // const li = document.createElement("a");
-      // li.textContent = title;
-      // li.href= "#!";
-      // titleList.appendChild(li);
+      // Thêm vào danh sách header__lists--data
       const hotSearchlist = document.querySelector(".header__lists--data");
       const li = document.createElement("li");
       li.className = "header__searchs";
@@ -50,42 +45,25 @@ async function fetchDataAndRender() {
       a.href = "#!";
       li.appendChild(a);
       hotSearchlist.appendChild(li);
+
+      // Thêm vào danh sách header__lists (nếu cần)
+      if (titles.indexOf(title) < 9) {
+        const hotSearch = document.querySelector(".header__lists");
+        const li = document.createElement("li");
+        li.className = "header__hotSearch";
+        const a = document.createElement("a");
+        a.className = "header__hotSearch--link";
+        a.textContent = title;
+        a.href = "#!";
+        li.appendChild(a);
+        hotSearch.appendChild(li);
+      }
     });
   } catch (error) {
     console.error("Lỗi khi gọi API:", error);
   }
 }
 fetchDataAndRender();
-
-// call api hotSearch
-
-async function fetchDataAndRenderH() {
-  try {
-    const response = await fetch(apiUrl);
-    const data = await response.json();
-
-    // Lấy trường title của đối tượng và đưa vào biến titles
-    const titles = data.results.map(item => item.title).slice(0, 9);
-    titles.forEach(title => {
-      // const li = document.createElement("a");
-      // li.textContent = title;
-      // li.href= "#!";
-      // titleList.appendChild(li);
-      const hotSearch = document.querySelector(".header__lists");
-      const li = document.createElement("li");
-      li.className = "header__hotSearch";
-      const a = document.createElement("a");
-      a.className = "header__hotSearch--link";
-      a.textContent = title;
-      a.href = "#!";
-      li.appendChild(a);
-      hotSearch.appendChild(li);
-    });
-  } catch (error) {
-    console.error("Lỗi khi gọi API:", error);
-  }
-}
-fetchDataAndRenderH();
 
 // debounceFn scroll
 function debounceFn(func, wait, immediate) {
@@ -289,21 +267,56 @@ window.addEventListener("load", function () {
   login.addEventListener("click", function () {
     header.insertAdjacentHTML("afterend", loginTemplate);
     document.body.classList.add("hidden-scroll");
-    const loginBtn = document.querySelector(".modalLogin__btn");
+    const formLogin = document.querySelector(".modalLogin__form");
     const emailInput = document.querySelector(".modalLogin__input--email input");
+    const passwordInput = document.querySelector(".modalLogin__input--password input");
     const emailError = document.querySelector(".modalLogin__email--error");
     const emailError2 = document.querySelector(".modalLogin__email--error2");
+    const passwordError = document.querySelector(".modalLogin__password--error");
     emailInput.addEventListener("input", function (e) {
-      const value = e.target.value;
-      const regexEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      if (regexEmail.test(value.trim())) {
+      if (e.target.value) {
+        emailError.classList.remove("js-show");
         emailError2.classList.remove("js-show");
-      } else {
+      }
+    });
+    passwordInput.addEventListener("input", function (e) {
+      if (e.target.value) {
+        passwordError.classList.remove("js-show");
+      }
+    });
+    emailInput.addEventListener("blur", function () {
+      emailChecking();
+      // const valuePassword = passwordInput.value;
+      // if (!valuePassword) {
+      //     passwordError.classList.add("js-show");
+      // }
+    });
+
+    function emailChecking() {
+      const value = emailInput.value;
+      const regexEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!regexEmail.test(value.trim())) {
         emailError2.classList.add("js-show");
+      } else {
+        emailError2.classList.remove("js-show");
       }
       if (!value) {
+        emailError.classList.add("js-show");
         emailError2.classList.remove("js-show");
+      } else {
+        emailError.classList.remove("js-show");
       }
+    }
+    function passwordChecking() {
+      const valuePassword = passwordInput.value;
+      if (!valuePassword) {
+        passwordError.classList.add("js-show");
+      }
+    }
+    formLogin.addEventListener("submit", function (e) {
+      e.preventDefault();
+      emailChecking();
+      passwordChecking();
     });
   });
   document.body.addEventListener("click", function (e) {
@@ -314,3 +327,30 @@ window.addEventListener("load", function () {
     }
   });
 });
+
+// 
+function moveToNextSlide() {
+  let lists = document.querySelectorAll('.slider__item');
+  document.querySelector('.slider').appendChild(lists[0]);
+}
+function moveToPreviousSlide() {
+  let lists = document.querySelectorAll('.slider__item');
+  document.querySelector('.slider').prepend(lists[lists.length - 1]);
+}
+
+// Thiết lập thời gian tự động chuyển slide (ví dụ: sau mỗi 5 giây)
+let interval = setInterval(moveToNextSlide, 6000);
+
+// Khi click vào nút 'Next', chuyển slide và đặt lại thời gian tự động
+document.querySelector('.slider__next').onclick = function () {
+  moveToNextSlide();
+  clearInterval(interval); // Đặt lại thời gian tự động
+  interval = setInterval(moveToNextSlide, 6000); // Bắt đầu lại thời gian tự động
+};
+
+// Tương tự cho nút 'Previous'
+document.querySelector('.slider__prev').onclick = function () {
+  moveToPreviousSlide();
+  clearInterval(interval);
+  interval = setInterval(moveToNextSlide, 6000);
+};
