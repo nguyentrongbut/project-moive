@@ -166,7 +166,91 @@
     }
 }
 
-.ccc {
-    background: #000;
-    height: 100000px;
+.movies {
+    &__slider {
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+        .container {
+            margin: 0 55px;
+        }
+    }
+    &__category {
+        margin-top: 45px;
+        font-size: 2.8rem;
+        font-weight: 600;
+    }
+    &__btn-next, &__btn-prev {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 28px;
+        color: #fff;
+        opacity: 0.6;
+        z-index: 222;
+        cursor: pointer;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &__btn-next {
+        right: 19px;
+    }
+    &__btn-prev {
+        left: 19px;
+    }
+    &__wrapper {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        margin-top: 22px; 
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    &__card {
+        min-width: 212px;
+        margin-right: 18px;
+    }
+    &__image {
+        position: relative;
+        width: 100%;
+        height: 282.66px;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    &__thumb {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+    &__layer {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        height: 60px;
+        background-image: linear-gradient(
+            0deg,
+            rgba(10, 12, 15, 0.8) 0%,
+            rgba(10, 12, 15, 0.74) 4%,
+            rgba(10, 12, 15, 0.59) 17%,
+            rgba(10, 12, 15, 0.4) 34%,
+            rgba(10, 12, 15, 0.21) 55%,
+            rgba(10, 12, 15, 0.06) 78%,
+            rgba(10, 12, 15, 0) 100%
+        );
+    }
+    &__episodes {
+        position: absolute;
+        bottom: 10px;
+        left: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+    &__title {
+        padding: 10px 0;
+        font-size: 1.6rem;
+    }
 }

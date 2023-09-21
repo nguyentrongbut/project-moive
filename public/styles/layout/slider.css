@@ -152,6 +152,51 @@
     filter: blur(0);
   }
 }
+.movies__slider {
+  position: relative;
+  overflow: hidden;
+}
+.movies__wrapper {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+.movies__wrapper::-webkit-scrollbar {
+  display: none;
+}
+.movies__card {
+  width: 212px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.movies__image {
+  position: relative;
+  width: 100%;
+  height: 282.66px;
+}
+.movies__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.movies__layer {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 60px;
+  background-image: linear-gradient(0deg, rgba(10, 12, 15, 0.8) 0%, rgba(10, 12, 15, 0.74) 4%, rgba(10, 12, 15, 0.59) 17%, rgba(10, 12, 15, 0.4) 34%, rgba(10, 12, 15, 0.21) 55%, rgba(10, 12, 15, 0.06) 78%, rgba(10, 12, 15, 0) 100%);
+}
+.movies__episodes {
+  position: absolute;
+  bottom: 10px;
+  left: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  text-transform: capitalize;
+}
+
 .ccc {
   background: #000;
   height: 100000px;

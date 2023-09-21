@@ -72,7 +72,6 @@ async function fetchDataAndRender() {
 
 fetchDataAndRender();
 
-
 // debounceFn scroll
 function debounceFn(func, wait, immediate) {
     let timeout;
@@ -302,25 +301,25 @@ window.addEventListener("load", function () {
         const passwordError = document.querySelector(
             ".modalLogin__password--error"
         );
-        emailInput.addEventListener("input", function(e) {
-            if(e.target.value) {
+        emailInput.addEventListener("input", function (e) {
+            if (e.target.value) {
                 emailError.classList.remove("js-show");
                 emailError2.classList.remove("js-show");
             }
-        }) 
-        passwordInput.addEventListener("input", function(e) {
-            if(e.target.value) {
+        });
+        passwordInput.addEventListener("input", function (e) {
+            if (e.target.value) {
                 passwordError.classList.remove("js-show");
             }
-        }) 
+        });
         emailInput.addEventListener("blur", function () {
             emailChecking();
-           // const valuePassword = passwordInput.value;
+            // const valuePassword = passwordInput.value;
             // if (!valuePassword) {
             //     passwordError.classList.add("js-show");
             // }
         });
-        function emailChecking () {
+        function emailChecking() {
             const value = emailInput.value;
             const regexEmail =
                 /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -336,7 +335,7 @@ window.addEventListener("load", function () {
                 emailError.classList.remove("js-show");
             }
         }
-        function passwordChecking () {
+        function passwordChecking() {
             const valuePassword = passwordInput.value;
             if (!valuePassword) {
                 passwordError.classList.add("js-show");
@@ -356,34 +355,70 @@ window.addEventListener("load", function () {
         }
     });
 
-    // 
+    //
     function moveToNextSlide() {
-        let lists = document.querySelectorAll('.slider__item');
-        document.querySelector('.slider').appendChild(lists[0]);
+        let lists = document.querySelectorAll(".slider__item");
+        document.querySelector(".slider").appendChild(lists[0]);
     }
-    
+
     function moveToPreviousSlide() {
-        let lists = document.querySelectorAll('.slider__item');
-        document.querySelector('.slider').prepend(lists[lists.length - 1]);
+        let lists = document.querySelectorAll(".slider__item");
+        document.querySelector(".slider").prepend(lists[lists.length - 1]);
     }
-    
+
     // Thiết lập thời gian tự động chuyển slide (ví dụ: sau mỗi 5 giây)
     let interval = setInterval(moveToNextSlide, 6000);
-    
+
     // Khi click vào nút 'Next', chuyển slide và đặt lại thời gian tự động
-    document.querySelector('.slider__next').onclick = function() {
+    document.querySelector(".slider__next").onclick = function () {
         moveToNextSlide();
         clearInterval(interval); // Đặt lại thời gian tự động
         interval = setInterval(moveToNextSlide, 6000); // Bắt đầu lại thời gian tự động
-    }
-    
+    };
+
     // Tương tự cho nút 'Previous'
-    document.querySelector('.slider__prev').onclick = function() {
+    document.querySelector(".slider__prev").onclick = function () {
         moveToPreviousSlide();
         clearInterval(interval);
         interval = setInterval(moveToNextSlide, 6000);
-    }
-    
+    };
+
+    const sliders = document.querySelectorAll(".movies__wrapper");
+    const nxtBtns = document.querySelectorAll(".movies__btn-prev");
+    const preBtns = document.querySelectorAll(".movies__btn-next");
+
+    sliders.forEach((slider, i) => {
+        const nxtBtn = nxtBtns[i];
+        const preBtn = preBtns[i];
+
+        let containerDimensions = slider.getBoundingClientRect();
+        let containerWidth = containerDimensions.width;
+        let contentWidth = slider.scrollWidth;
+
+        preBtn.style.display = "none";
+
+        slider.addEventListener("scroll", () => {
+            let scrollLeft = slider.scrollLeft;
+
+            if (scrollLeft === 0) {
+                preBtn.style.display = "none";
+            } else {
+                preBtn.style.display = "block";
+            }
+
+            if (scrollLeft + containerWidth >= contentWidth) {
+                nxtBtn.style.display = "none";
+            } else {
+                nxtBtn.style.display = "block";
+            }
+        });
+
+        nxtBtn.addEventListener("click", () => {
+            slider.scrollLeft += containerWidth;
+        });
+
+        preBtn.addEventListener("click", () => {
+            slider.scrollLeft -= containerWidth;
+        });
+    });
 });
-
-
