@@ -10,7 +10,15 @@ html(lang="en")
 		block head 
 			include ../blocks/head
 	body(class=bodyClass)
-		.title Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reiciendis accusamus optio consequuntur corporis praesentium modi earum aspernatur assumenda nihil!
+		block header 
+			include ../blocks/header
+		main
+			block slider 
+				include ../blocks/slider
+		block footer 
+			include ../blocks/footer
+		block script 
+			include ../blocks/scripts
 		//- .wrapper
 		//- 	block header
 		//- 		include ../blocks/header

@@ -28,6 +28,7 @@
 // fetchDataAndRender();
 
 // call api hotSearch
+
 const apiUrl =
     "https://api.themoviedb.org/3/movie/top_rated?api_key=a98fd8b296eaf9924a5460d5ae4c8040";
 
@@ -150,6 +151,13 @@ window.addEventListener("load", function () {
     const searchLi = document.querySelectorAll(".header__searchs");
     const hotsSearch = document.querySelector(".header__lists");
     const searchList = document.querySelector(".header__lists--data");
+    // const headerActive = document.querySelectorAll(".header__item--link");
+    // // ACTIVE LINK
+    // [...headerActive].forEach(item => item.addEventListener("click", handleActiveClick));
+    // function handleActiveClick (e) {
+    //     [...headerActive].forEach(item => item.classList.remove("activeLink"));
+    //     e.target.classList.add("activeLink");
+    // }
 
     // HIGHLIGHT SEARCH AND NO SPACE
     input.addEventListener("input", function (e) {
@@ -384,41 +392,56 @@ window.addEventListener("load", function () {
     };
 
     const sliders = document.querySelectorAll(".movies__wrapper");
-    const nxtBtns = document.querySelectorAll(".movies__btn-prev");
-    const preBtns = document.querySelectorAll(".movies__btn-next");
+    const nextBtns = document.querySelectorAll(".movies__btn-next");
+    const prevBtns = document.querySelectorAll(".movies__btn-prev");
 
     sliders.forEach((slider, i) => {
-        const nxtBtn = nxtBtns[i];
-        const preBtn = preBtns[i];
+        const nextBtn = nextBtns[i];
+        const prevBtn = prevBtns[i];
 
         let containerDimensions = slider.getBoundingClientRect();
         let containerWidth = containerDimensions.width;
         let contentWidth = slider.scrollWidth;
 
-        preBtn.style.display = "none";
+        // Tạo một biến để theo dõi trạng thái hiện tại của nút next và prev
+        let isNextBtnHidden = false;
+        let isPrevBtnHidden = false;
+
+        // Kiểm tra và ẩn/hiện nút next và prev ban đầu
+        updateButtonVisibility();
 
         slider.addEventListener("scroll", () => {
             let scrollLeft = slider.scrollLeft;
 
-            if (scrollLeft === 0) {
-                preBtn.style.display = "none";
-            } else {
-                preBtn.style.display = "block";
-            }
-
-            if (scrollLeft + containerWidth >= contentWidth) {
-                nxtBtn.style.display = "none";
-            } else {
-                nxtBtn.style.display = "block";
-            }
+            // Kiểm tra và ẩn/hiện nút next và prev dựa trên vị trí cuộn
+            updateButtonVisibility();
         });
 
-        nxtBtn.addEventListener("click", () => {
+        nextBtn.addEventListener("click", () => {
             slider.scrollLeft += containerWidth;
         });
 
-        preBtn.addEventListener("click", () => {
+        prevBtn.addEventListener("click", () => {
             slider.scrollLeft -= containerWidth;
         });
+
+        // Hàm để cập nhật trạng thái ẩn/hiện của nút next và prev
+        function updateButtonVisibility() {
+            if (slider.scrollLeft === 0) {
+                isPrevBtnHidden = true;
+                prevBtn.style.display = "none";
+            } else if (isPrevBtnHidden) {
+                isPrevBtnHidden = false;
+                prevBtn.style.display = "block";
+            }
+
+            if (slider.scrollLeft + containerWidth >= contentWidth) {
+                isNextBtnHidden = true;
+                nextBtn.style.display = "none";
+            } else if (isNextBtnHidden) {
+                isNextBtnHidden = false;
+                nextBtn.style.display = "block";
+            }
+        }
     });
 });

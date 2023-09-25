@@ -10,6 +10,624 @@
     <link rel="stylesheet" href="./styles/styles.css">
   </head>
   <body>
-    <div class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati reiciendis accusamus optio consequuntur corporis praesentium modi earum aspernatur assumenda nihil!</div>
+    <header class="header">
+      <div class="container">
+        <div class="header__container"> 
+          <div class="header__logo"><a class="header__logo--link" href="index.html">MITOM</a></div>
+          <ul class="header__navs">
+            <li class="header__item"><a class="header__item--link" href="index.html">For you</a></li>
+            <li class="header__item"><a class="header__item--link" href="#!">Drama</a></li>
+            <li class="header__item"><a class="header__item--link" href="#!">Movie</a></li>
+            <li class="header__item"><a class="header__item--link" href="anime.html">Anime</a></li>
+          </ul>
+          <div class="header__right">
+            <form class="header__search">
+              <div class="header__form"> 
+                <input class="header__input" type="text" placeholder="One Piece"><i class="fa fa-times-circle header__search--delete"></i>
+                <button class="header__search--btn"><i class="far fa-search"></i></button><span class="line"></span>
+                <div class="header__lists--data"></div>
+                <div class="header__lists">
+                  <div class="header__hotSearch--title">Popular Searches</div>
+                </div>
+                <div class="header__overlay"></div>
+              </div>
+            </form>
+            <div class="header__icons">
+              <div class="header__history"> <i class="far fa-history"></i>
+                <div class="header__text">History</div>
+              </div>
+              <div class="header__user"><i class="far fa-user"></i>
+                <div class="header__text">Me</div>
+                <div class="header__login"> 
+                  <p class="header__login--text">Login to watch trendy content </p>
+                  <div class="header__login--btn">Login</div>
+                </div>
+              </div>
+              <div class="header__vip"> <i class="far fa-crown"></i><span>VIP</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="slider-wrapper"> 
+        <div class="slider"> 
+          <div class="slider__item" style="background-image: url(https://image.tmdb.org/t/p/original/Ab8mkHmkYADjU7wQiOkia9BzGvS.jpg);">
+            <div class="slider__content">
+              <div class="slider__name">The Godfather</div>
+              <div class="slider__info">
+                <div class="slider__vote">8.7</div>
+                <div class="slider__line"></div>
+                <div class="slider__date">1972-03-14</div>
+              </div>
+              <div class="slider__genre"> 
+                <div class="slider__genre--1">War</div>
+                <div class="slider__genre--2">Family</div>
+              </div>
+              <div class="slider__desc">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.</div>
+            </div>
+          </div>
+          <div class="slider__item" style="background-image: url(https://image.tmdb.org/t/p/original/tmU7GeKVybMWFButWEGl2M4GeiP.jpg);">
+            <div class="slider__content">
+              <div class="slider__name">The Shawshank Redemption</div>
+              <div class="slider__info"><i class="fas fa-star slider__icon"></i>
+                <div class="slider__vote">8.7</div>
+                <div class="slider__line"></div>
+                <div class="slider__date">1994-09-23</div>
+              </div>
+              <div class="slider__genre"> 
+                <div class="slider__genre--1">123</div>
+                <div class="slider__genre--2">456</div>
+              </div>
+              <div class="slider__desc">Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope.</div>
+            </div>
+          </div>
+          <div class="slider__item" style="background-image: url(https://image.tmdb.org/t/p/original/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg);">
+            <div class="slider__content">
+              <div class="slider__name">The Godfather Part II</div>
+              <div class="slider__info">
+                <div class="slider__vote">8.7</div>
+                <div class="slider__line"></div>
+                <div class="slider__date">1972-03-14</div>
+              </div>
+              <div class="slider__genre"> 
+                <div class="slider__genre--1">War</div>
+                <div class="slider__genre--2">Family</div>
+              </div>
+              <div class="slider__desc">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.</div>
+            </div>
+          </div>
+          <div class="slider__item" style="background-image: url(https://image.tmdb.org/t/p/original/vI3aUGTuRRdM7J78KIdW98LdxE5.jpg);">
+            <div class="slider__content">
+              <div class="slider__name">1</div>
+              <div class="slider__info">
+                <div class="slider__vote">8.7</div>
+                <div class="slider__line"></div>
+                <div class="slider__date">1972-03-14</div>
+              </div>
+              <div class="slider__genre"> 
+                <div class="slider__genre--1">War</div>
+                <div class="slider__genre--2">Family</div>
+              </div>
+              <div class="slider__desc">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.</div>
+            </div>
+          </div>
+          <div class="slider__item" style="background-image: url(https://image.tmdb.org/t/p/original/qqHQsStV6exghCM7zbObuYBiYxw.jpg);">
+            <div class="slider__content">
+              <div class="slider__name">2</div>
+              <div class="slider__info">
+                <div class="slider__vote">8.7</div>
+                <div class="slider__line"></div>
+                <div class="slider__date">1972-03-14</div>
+              </div>
+              <div class="slider__genre"> 
+                <div class="slider__genre--1">War</div>
+                <div class="slider__genre--2">Family</div>
+              </div>
+              <div class="slider__desc">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.</div>
+            </div>
+          </div>
+        </div>
+        <button class="slider__prev"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider__next"><i class="fas fa-chevron-right"></i></button>
+      </section>
+      <section class="movies__slider">
+        <h2 class="movies__category">Popular on MiTom</h2>
+        <button class="movies__btn-prev"> <i class="fas fa-chevron-left"></i></button>
+        <button class="movies__btn-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="movies__wrapper">
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+        </div>
+      </section>
+      <section class="movies__slider">
+        <h2 class="movies__category">Popular on MiTom</h2>
+        <button class="movies__btn-prev"> <i class="fas fa-chevron-left"></i></button>
+        <button class="movies__btn-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="movies__wrapper">
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+        </div>
+      </section>
+      <section class="movies__slider">
+        <h2 class="movies__category">Popular on MiTom</h2>
+        <button class="movies__btn-prev"> <i class="fas fa-chevron-left"></i></button>
+        <button class="movies__btn-next"><i class="fas fa-chevron-right"></i></button>
+        <div class="movies__wrapper">
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+          <div class="movies__card">
+            <div class="movies__image"> <img class="movies__thumb" src="https://pic8.iqiyipic.com/image/20200930/42/2b/a_100400810_m_601_en_m1_260_360.webp">
+              <div class="movies__layer">
+                <p class="movies__episodes">48 episodes</p>
+              </div>
+            </div>
+            <p class="movies__title">Legend of Awakenning</p>
+            <div class="movies__play"> <i class="fas fa-play"></i></div>
+          </div>
+        </div>
+      </section><a href="pages.html">page</a>
+    </main>
+    <footer class="footer"> 
+      <div class="footer__wrapper">
+        <div class="footer__top">
+          <section class="footer__about">About MiTom<a class="about_us" href="#!">About us </a><a class="about_us" href="#!">Products and Services </a><a class="about_us" href="#!">Way to Watch</a></section>
+          <section class="footer__help">Help and support <a class="security" href="#!">Security Response Center</a><a class="faq" href="#!">FAQ</a></section>
+          <section class="footer__service">Terms of Service <a class="policy" href="#!">Privacy Policy </a><a class="service" href="#!">Terms of Service </a></section>
+        </div>
+        <div class="footer__bottom"> 
+          <section class="copyright"> 
+            <p>Copyright @ 2023 MiTom All Rights Reserved </p>
+            <p>We use cookies to improve your experience on this site. By continuing to use our website, you agree to our use of cookies.</p>
+          </section>
+          <section class="icon-group"><a class="facebook" href="#!"><i class="fab fa-facebook-square"></i></a><a class="facebook" href="#!"><i class="fab fa-instagram"></i></a><a class="facebook" href="#!"><i class="fab fa-twitter"></i></a></section>
+        </div>
+      </div>
+    </footer>
+    <script src="./scripts/main.js"></script>
   </body>
 </html>

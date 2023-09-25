@@ -73,10 +73,6 @@
     &__item {
         font-size: 1.6rem;
         margin-left: 4.1rem;
-        &:first-child .header__item--link {
-            font-weight: 700;
-            opacity: 1;
-        }
         &--link {
             font-weight: 500;
             color: $text-color;
@@ -100,6 +96,9 @@
             color: $light-white-color;
             border: none;
             font-size: 1.4rem;
+            &::placeholder {
+                color: rgb(137, 139, 140);
+            }
         }
     }
     &__lists,
@@ -417,4 +416,8 @@
 }
 .hidden-scroll {
     overflow: hidden;
+}
+.activeLink {
+    font-weight: 700;
+    opacity: 1;
 }
