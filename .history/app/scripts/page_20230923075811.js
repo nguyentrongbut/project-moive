@@ -1,1 +1,0 @@
-const videoPage = document.querySelector()

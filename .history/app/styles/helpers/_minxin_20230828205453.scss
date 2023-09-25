@@ -1,6 +1,0 @@
-@mixin lineClamp($lineClamp) {
-	display: -webkit-box;
-	-webkit-line-clamp: $lineClamp;
-    -webkit-box-orient: vertical;
-	overflow: hidden;
-}

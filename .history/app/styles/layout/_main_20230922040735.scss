@@ -1,8 +1,0 @@
-main {
-    background-color: rgb(17, 19, 25);
-    position: relative;
-    &::before {
-        position: absolute;
-        background-image: rgba(0, 0, 0, 0.3) 25%, rgba(0, 0, 0, 0.6) 49%, #000);;
-    }
-}
