@@ -138,15 +138,25 @@
             text-align: center;
             gap: 40px;
         }   
+        &--content {
+            display: none;
+        }
+        &--wrapper {
+            padding: 24px 0 28px;
+        }
     }
     &__item {
         padding: 18px 0 12px;
         opacity: 0.6;
+        cursor: pointer;
+        &:hover {
+            opacity: 1;
+        }
     }
 }
 .tab-active {
     opacity: 1;
-    font-weight: 700;
+    text-shadow: 1px 0 0 currentColor;
     cursor: pointer;
     border-bottom: 4px solid rgb(28, 199, 73);
 }
@@ -199,4 +209,7 @@
 }
 .js-none {
     display: none;
+}
+.tab-content-active {
+    display: block;
 }

@@ -35,14 +35,17 @@ section.page
         section.page__bottom    
             section.page__tab
                 .page__tab--list 
-                    .page__item.tab-active Episodes 
-                    .page__item  Highlights 
-                    .page__item  Cast
-                    .page__item  Recommended
+                    .page__item(data-tab = 1).tab-active Episodes 
+                    .page__item(data-tab = 2)  Highlights 
+                    .page__item(data-tab = 3)  Cast
+                    .page__item(data-tab = 4)  Recommended
                 .page__tab--wrapper
-                    .page__tab--content
-                        h3.post-title Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam modi magnam obcaecati rem aspernatur ratione reiciendis nulla fuga laborum velit.
-                    .page__tab--content
+                    .page__tab--content.tab-content-active(data-tab = 1)
+                        .
+                    .page__tab--content(data-tab = 2)
                         h3.post-title Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam modi magnam obcaecati rem aspernatur ratione reiciendis nulla fuga laborum velit.lorem
-                    .page__tab--content
+                    .page__tab--content(data-tab = 3)
                         h3.post-title Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam modi magnam obcaecati rem aspernatur ratione reiciendis nulla fuga laborum velit.lorem2
+                    .page__tab--content(data-tab = 4)
+                        h3.post-title Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam modi magnam obcaecati rem aspernatur ratione reiciendis nulla fuga laborum velit.lorem3
+

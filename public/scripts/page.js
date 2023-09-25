@@ -50,7 +50,24 @@ function handleClickMore() {
     // Khi nút "More" chưa được mở rộng, thực hiện hành động hiển thị nội dung
     descPage.style.display = "inline-block";
     morePage.textContent = "Collapse";
+    iconPage.classList.remove("fa-angle-down");
     iconPage.classList.add("fa-angle-up");
     isExpanded = true;
   }
+}
+const tabItems = document.querySelectorAll(".page__item");
+const tabContents = document.querySelectorAll(".page__tab--content");
+[...tabItems].forEach(item => item.addEventListener("click", handleClickTab));
+function handleClickTab(e) {
+  [...tabItems].forEach(item => item.classList.remove("tab-active"));
+  e.target.classList.add("tab-active");
+  const tabNumber = parseInt(e.target.dataset.tab);
+  console.log(tabNumber);
+  [...tabContents].forEach(item => {
+    item.classList.remove("tab-content-active");
+    // console.log(item.getAttribute("data-tab"));
+    if (parseInt(item.getAttribute("data-tab")) == tabNumber) {
+      item.classList.add("tab-content-active");
+    }
+  });
 }
