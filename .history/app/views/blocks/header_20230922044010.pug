@@ -1,0 +1,66 @@
+header.header
+  .container
+    .header__container 
+      .header__logo
+        a.header__logo--link(href="index.html") MITOM
+      ul.header__navs
+        +tabLink({
+          title : "For you",
+          href: "index.html"
+        })
+        +tabLink({
+          title : "Drama",
+          href: "#!"
+        })
+        +tabLink({
+          title : "Movie",
+          href: "#!"
+        })
+        li 
+          a.hea
+      .header__right
+        form.header__search
+          .header__form 
+            input.header__input(type='text' placeholder = 'One Piece')
+            i.fa.fa-times-circle.header__search--delete
+            button.header__search--btn
+              i.far.fa-search
+            span.line
+            .header__lists--data
+            .header__lists
+              .header__hotSearch--title Popular Searches
+            .header__overlay
+        .header__icons
+          .header__history 
+            i.far.fa-history
+            .header__text History
+          .header__user
+            i.far.fa-user
+            .header__text Me
+            .header__login  
+              p.header__login--text Login to watch trendy content 
+              .header__login--btn Login
+          .header__vip 
+            i.far.fa-crown
+            span VIP
+//- .modal
+//-   .modalLogin 
+//-     p.modalLogin__title Log in
+//-     form.modalLogin__form(action="") 
+//-       .modalLogin__wrapper
+//-         .modalLogin__input--email 
+//-           input(type='text' placeholder =' ')
+//-           label(for='text') Email
+//-       span.modalLogin__email--error Enter email address
+//-       span.modalLogin__email--error2 Enter format error
+//-       .modalLogin__wrapper
+//-         .modalLogin__input--password
+//-           input(type='password' placeholder =' ')
+//-           label(for='password') Password
+//-       span.modalLogin__password--error Enter password
+//-       button.modalLogin__btn Login
+//-     .modalLogin__forgotPassword Forgot password
+//-     .modalLogin__desc 
+//-       p Don't have an account yet?
+//-       p.modalLogin__SignUp Sign Up
+//-     i.fa.fa-times.modal-close

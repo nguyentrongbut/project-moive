@@ -1,0 +1,42 @@
+.footer {
+    width: 100%;
+    background: rgb(10, 12, 15);
+    border-top: 1px solid rgb(45, 47, 52);
+    &__wrapper {
+        max-width: 1180px;
+        margin: 35px auto 0;
+    }
+    &__top {
+        display: flex;
+        gap: 130px;
+    }
+    &__about,
+    &__help,
+    &__service {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        color: #dddd;
+        font-size: 14px;
+    }
+    &__about > *,
+    &__help > *,
+    &__service > * {
+        font-size: 13px;
+        color: rgb(153, 153, 153);
+        &:hover {
+            color: rgb(28, 199, 73);
+        }
+    }
+    &__bottom {
+        display: flex;
+    }
+    .copyright {
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 300;
+        color: rgb(155, 155, 155);
+        text-align: left;
+    }
+    
+}

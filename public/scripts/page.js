@@ -43,6 +43,7 @@ function handleClickMore() {
     // Khi nút "More" đã được mở rộng, thực hiện hành động ẩn nội dung
     descPage.style.display = "-webkit-box";
     morePage.textContent = "More";
+    iconPage.classList.remove("fa-angle-up");
     iconPage.classList.add("fa-angle-down");
     isExpanded = false;
   } else {

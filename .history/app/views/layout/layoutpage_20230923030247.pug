@@ -1,0 +1,20 @@
+block mixins
+	include ../blocks/mixins
+block vars
+	-title = 'page'
+	-bodyClass = ''
+
+doctype html
+html(lang="en")
+	head
+		block head 
+			include ../blocks/head
+	body(class=bodyClass)
+		block header 
+			include ../blocks/header
+		main
+			block page 
+		block footer 
+			include ../blocks/footer
+		block script 
+			include ../blocks/scripts

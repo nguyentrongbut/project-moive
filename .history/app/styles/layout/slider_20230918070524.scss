@@ -1,0 +1,27 @@
+.slider-wrapper {
+    position: relative;
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: #ccc;
+}
+.slider {
+    width: max-content;
+}
+.slider__item {
+    position: absolute;
+    top: 50%;
+    tran
+    background-image: url(https://image.tmdb.org/t/p/original/4XM8DUTQb3lhLemJC51Jx4a2EuA.jpg);
+    width: 200px;
+    height: 300px;
+    border-radius: 20px;
+    background-position: 50% 50%;
+    display: inline-block;
+    transition: 0.5s;
+    background-size: cover;
+
+}
+.ccc {
+    background: #000;
+    height: 100000px;
+}
