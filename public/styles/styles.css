@@ -13,6 +13,26 @@ body {
   margin-right: auto;
 }
 
+a {
+  color: #fff;
+}
+
+/* width */
+::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-image: linear-gradient(to right, #00dc5a, #49d26d);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgb(17, 19, 25);
+}
+
 main {
   background-color: rgb(17, 19, 25);
 }
@@ -653,7 +673,7 @@ main {
   max-width: calc(100% - 100px);
   margin: 0 auto;
   color: #fff;
-  transform: translateY(-160px);
+  transform: translateY(-170px);
 }
 .movies__category {
   margin-top: 45px;
@@ -738,7 +758,7 @@ main {
 .movies__thumb {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
 }
 .movies__layer {
   position: absolute;
@@ -759,6 +779,36 @@ main {
 .movies__title {
   padding: 10px 0;
   font-size: 1.6rem;
+}
+
+.contiune-watching {
+  margin-top: 10px;
+}
+
+.card__continue {
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card__desc {
+  width: 256px;
+  font-size: 16px;
+  color: rgb(236, 236, 236);
+}
+
+.card__login {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 10px 20px;
+  background-color: rgb(28, 199, 73);
+  border-radius: 4px;
+}
+.card__login:hover {
+  background: rgb(0, 230, 61);
 }
 
 .page {
@@ -794,6 +844,7 @@ main {
   overflow: hidden;
 }
 .page__director, .page__cast, .page__desc {
+  margin-top: 10px;
   max-width: 720px;
   font-size: 16px;
   color: rgb(169, 169, 172);
@@ -861,7 +912,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: cover;
   transition: 0.2s linear;
 }
 .page__audio--open, .page__audio--close {
@@ -907,6 +958,32 @@ main {
 }
 .page__item:hover {
   opacity: 1;
+}
+.page__card {
+  width: calc(16.6666666667% - 16px);
+  cursor: pointer;
+}
+.page__card--wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.page__card-img {
+  position: relative;
+}
+.page__card-thumb {
+  height: 164px;
+  object-fit: cover;
+}
+.page__card-title {
+  font-size: 16px;
+  padding: 10px 0 0;
+}
+.page__card:hover {
+  opacity: 0.8;
+}
+.page__card:hover .movies__page {
+  visibility: visible;
 }
 
 .tab-active {
@@ -954,6 +1031,38 @@ main {
 
 .tab-content-active {
   display: block;
+}
+
+.movies__page {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(-50%, -44%);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(28, 199, 73);
+  border-radius: 50%;
+  visibility: hidden;
+}
+.movies__page > i {
+  transform: translateX(2px);
+  color: #fff;
+  font-size: 16px;
+}
+
+.update-info-mask {
+  font-size: 12px;
+  font-weight: 500;
+  position: absolute;
+  left: 8px;
+  bottom: 10px;
+}
+
+.movies-card:hover {
+  opacity: 1;
 }
 
 img {

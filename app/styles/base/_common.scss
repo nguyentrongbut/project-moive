@@ -9,3 +9,26 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+a {
+    color: #fff;
+}
+
+/* width */
+::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-image: linear-gradient(to right, #00dc5a, #49d26d);
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgb(17, 19, 25);
+}
+
+
+

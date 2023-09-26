@@ -6,6 +6,8 @@ const descPage = document.querySelector(".page__desc");
 const btnMorePage = document.querySelector(".page__desc--btn");
 const morePage = document.querySelector(".page__desc--morebtn");
 const iconPage = document.querySelector(".page__desc--arrow i");
+const tabItems = document.querySelectorAll(".page__item");
+const tabContents = document.querySelectorAll(".page__tab--content");
 
 setTimeout(function () {
     thumbPage.classList.add("js-hidden");
@@ -60,8 +62,6 @@ function handleClickMore() {
     }
 }
 
-const tabItems = document.querySelectorAll(".page__item");
-const tabContents = document.querySelectorAll(".page__tab--content");
 [...tabItems].forEach(item => item.addEventListener("click", handleClickTab));
 function handleClickTab (e) {
     [...tabItems].forEach(item => item.classList.remove("tab-active"));

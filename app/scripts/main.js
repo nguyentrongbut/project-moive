@@ -151,6 +151,7 @@ window.addEventListener("load", function () {
     const searchLi = document.querySelectorAll(".header__searchs");
     const hotsSearch = document.querySelector(".header__lists");
     const searchList = document.querySelector(".header__lists--data");
+    const continueLogin = document.querySelector(".card__continue");
     // const headerActive = document.querySelectorAll(".header__item--link");
     // // ACTIVE LINK
     // [...headerActive].forEach(item => item.addEventListener("click", handleActiveClick));
@@ -444,4 +445,5 @@ window.addEventListener("load", function () {
             }
         }
     });
+
 });

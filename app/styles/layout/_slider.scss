@@ -176,7 +176,7 @@
         max-width: calc(100% - 100px);
         margin: 0 auto;
         color: #fff;
-        transform: translateY(-160px);
+        transform: translateY(-170px);
     }
     &__category {
         margin-top: 45px;
@@ -262,7 +262,7 @@
     &__thumb {
         width: 100%;
         height: 100%;
-        object-fit: fill;
+        object-fit: cover;
     }
     &__layer {
         position: absolute;
@@ -292,5 +292,31 @@
     &__title {
         padding: 10px 0;
         font-size: 1.6rem;
+    }
+}
+.contiune-watching {
+    margin-top: 10px;
+}
+.card__continue {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.card__desc {
+    width: 256px;
+    font-size: 16px;
+    color: rgb(236, 236, 236);
+}
+.card__login {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 10px 20px;
+    background-color: rgb(28, 199, 73);
+    border-radius: 4px;
+    &:hover {
+        background: rgb(0, 230, 61);
     }
 }
